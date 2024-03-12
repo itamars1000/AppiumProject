@@ -33,6 +33,10 @@ class LaLigaMobile:
         self.get_username_tab().send_keys(username)
         self.get_password_tab().send_keys(password)
         self.get_sign_in_button().click()
+        self.click_next()
+        self.click_allow_permission()
+        self.click_next()
+        self.click_get_started()
 
     def click_next(self):
         self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.TextView[@text='NEXT']").click()
@@ -60,3 +64,16 @@ class LaLigaMobile:
 
     def get_player_assists(self):
         return self.driver.find_element(by=AppiumBy.XPATH, value="//androidx.compose.ui.platform.m1/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.widget.TextView[1]")
+
+    def get_first_team(self):
+        return self.driver.find_elements(by=AppiumBy.XPATH, value="//android.widget.TextView[@resource-id='leaderboard_home_team']")[0]
+
+    def click_more(self):
+        self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.TextView[@text='More']").click()
+
+    def click_logout(self):
+        self.driver.find_element(by=AppiumBy.XPATH, value="//android.widget.TextView[@text='LOGOUT']").click()
+
+    def click_accept_logout(self):
+        self.driver.find_element(by=AppiumBy.XPATH, value="//android.view.View[@resource-id='dialog_button_continue']/android.widget.Button").click()
+

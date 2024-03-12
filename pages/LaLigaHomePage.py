@@ -19,3 +19,12 @@ class LaLigaHomePage:
 
     def click_accept_cookies(self):
         self.driver.find_element(By.XPATH, "//*[@id='onetrust-accept-btn-handler']").click()
+
+    def get_la_liga_logo(self):
+        return self.driver.find_element(By.XPATH, "//*[@id='__next']/header/div[5]/div/div[1]")
+
+    def get_standings_button(self):
+        return self.driver.find_element(By.XPATH, "//*[@id='__next']/header/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]/a/div[1]/p")
+
+    def click_standings(self):
+        self.get_standings_button().click()
